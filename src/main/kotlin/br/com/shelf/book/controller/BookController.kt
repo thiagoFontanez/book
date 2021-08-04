@@ -13,7 +13,7 @@ import br.com.shelf.book.model.*
 class BookController {
 
 fun readFile(): List<BookModel>{
-	println("iniciandoLeitura ")
+	println("iniciando Leitura ")
 	val listBooks = mutableListOf<BookModel>()
     val file = File("books.txt")
     val input = Scanner(`in`)
@@ -35,7 +35,7 @@ fun readFile(): List<BookModel>{
 	
 	@GetMapping("/find")
 	@ResponseBody
-	fun autalizeBook(@RequestParam book: String): BookModel{
+	fun findBook(@RequestParam book: String): BookModel{
 		val books = readFile()
 		val index = books.indexOfFirst{ it.title == book}
 		if(index >=0){
